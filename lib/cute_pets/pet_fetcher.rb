@@ -53,7 +53,6 @@ module PetFetcher
     }
     uri.query = URI.encode_www_form(params)
     response = Net::HTTP.get_response(uri)
-    puts "Hi #{response.body}"
     if response.kind_of? Net::HTTPSuccess
       # The html response comes wrapped in some js :(
       response_html = response.body.gsub(/^document.write\s+\(\"/, '')
