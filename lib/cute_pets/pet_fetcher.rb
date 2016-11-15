@@ -45,7 +45,7 @@ module PetFetcher
     uri = URI('http://petharbor.com/petoftheday.asp')
 
     params = {
-      shelterlist: "%27#{get_petharbor_shelter_id}%27",
+      shelterlist: "\'#{get_petharbor_shelter_id}\'",
       type: get_petharbor_pet_type,
       availableonly: '1',
       showstat: '1',
@@ -53,7 +53,7 @@ module PetFetcher
     }
     uri.query = URI.encode_www_form(params)
     response = Net::HTTP.get_response(uri)
-    puts "Hi"
+    puts "Hi #{response.body}"
     if response.kind_of? Net::HTTPSuccess
       # The html response comes wrapped in some js :(
       response_html = response.body.gsub(/^document.write\s+\(\"/, '')
