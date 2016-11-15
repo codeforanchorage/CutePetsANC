@@ -45,7 +45,7 @@ module PetFetcher
     uri = URI('http://www.petharbor.com/petoftheday.asp')
 
     params = {
-      shelterlist: "\'#{get_petharbor_shelter_id}\'",
+      shelterlist: "%27#{get_petharbor_shelter_id}%27",
       type: get_petharbor_pet_type,
       availableonly: '1',
       showstat: '1',
