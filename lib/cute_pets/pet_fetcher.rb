@@ -53,13 +53,12 @@ module PetFetcher
     }
     uri.query = URI.encode_www_form(params)
     response = Net::HTTP.get_response(uri)
+    puts "Hi"
     if response.kind_of? Net::HTTPSuccess
       # The html response comes wrapped in some js :(
       response_html = response.body.gsub(/^document.write\s+\(\"/, '')
       response_html = response_html.gsub(/\"\);/, '')
-      
-      puts "http"
-
+     
       doc = Hpricot(response_html)
       pet_url = doc.at('//a').attributes['href']
       pet_url = pet_url.gsub('\"', '').gsub('\\', '')
