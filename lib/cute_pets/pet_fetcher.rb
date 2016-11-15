@@ -57,6 +57,8 @@ module PetFetcher
       # The html response comes wrapped in some js :(
       response_html = response.body.gsub(/^document.write\s+\(\"/, '')
       response_html = response_html.gsub(/\"\);/, '')
+      
+      puts "http"
 
       doc = Hpricot(response_html)
       pet_url = doc.at('//a').attributes['href']
