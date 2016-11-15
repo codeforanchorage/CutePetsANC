@@ -42,7 +42,7 @@ module PetFetcher
   end
 
   def get_petharbor_pet()
-    uri = URI('http://www.petharbor.com/petoftheday.asp')
+    uri = URI('http://petharbor.com/petoftheday.asp')
 
     params = {
       shelterlist: "%27#{get_petharbor_shelter_id}%27",
